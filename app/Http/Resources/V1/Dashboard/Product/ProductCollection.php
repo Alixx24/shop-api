@@ -1,0 +1,24 @@
+<?php
+
+namespace App\Http\Resources\V1\Dashboard\Product;
+
+use Illuminate\Http\Resources\Json\ResourceCollection;
+
+class ProductCollection extends ResourceCollection
+{
+    public function toArray($request)
+    {
+        return [
+            'data' => ProductResource::collection($this->collection),
+
+            'meta' => [
+                'current_page' => $this->currentPage(),
+                'last_page'    => $this->lastPage(),
+                'per_page'     => $this->perPage(),
+                'total'        => $this->total(),
+                'prev_page_url'=> $this->previousPageUrl(),
+                'next_page_url'=> $this->nextPageUrl(),
+            ],
+        ];
+    }
+}
