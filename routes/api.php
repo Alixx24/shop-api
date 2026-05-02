@@ -21,3 +21,4 @@ Route::put('/products/{id}', [ProductController::class, 'update']);
 Route::get('/products/{id}', [ProductController::class, 'show']);
 
 Route::get('/posts', [PostController::class, 'index']);
+Route::post('/posts', [PostController::class, 'store']);
